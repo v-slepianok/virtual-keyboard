@@ -1,0 +1,33 @@
+[
+    [{
+        "main": "1",
+        "shifted": "!",
+        "translated": "1",
+        "translatedShifted": "!",
+        "classes": ["qwe"]
+    }, {
+        "main": "2",
+        "shifted": "@",
+        "translated": "2",
+        "translatedShifted": "\"",
+        "classes": ["qwe"]
+    }, {
+        "main": "3",
+        "shifted": "!",
+        "translated": "3",
+        "translatedShifted": "!",
+        "classes": ["qwe"]
+    }],
+    [{
+        "main": "q",
+        "shifted": "Q",
+        "translated": "й",
+        "translatedShifted": "Й"
+    }],
+    [{
+        "main": "k",
+        "shifted": "K",
+        "translated": "л",
+        "translatedShifted": "Л"
+    }]
+]
