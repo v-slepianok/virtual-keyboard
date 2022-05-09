@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --no-client-overlay-warnings",
     "build": "webpack --mode production",
-    "predeploy": "npm run build",
+    "predeploy": "npx eslint src && npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {},
