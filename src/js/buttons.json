@@ -1,0 +1,382 @@
+[
+    [{
+        "main": "1",
+        "shifted": "!",
+        "translated": "1",
+        "translatedShifted": "!",
+        "displayShifted": true,
+        "classes": []
+    }, {
+        "main": "2",
+        "shifted": "@",
+        "translated": "2",
+        "translatedShifted": "\"",
+        "displayShifted": true,
+        "classes": []
+    }, {
+        "main": "3",
+        "shifted": "#",
+        "translated": "3",
+        "translatedShifted": "№",
+        "displayShifted": true,
+        "classes": []
+    },{
+        "main": "4",
+        "shifted": "$",
+        "translated": "4",
+        "translatedShifted": "%",
+        "displayShifted": true,
+        "classes": []
+    },{
+        "main": "5",
+        "shifted": "%",
+        "translated": "5",
+        "translatedShifted": ":",
+        "displayShifted": true,
+        "classes": []
+
+    },{
+        "main": "6",
+        "shifted": "^",
+        "translated": "6",
+        "translatedShifted": ",",
+        "displayShifted": true,
+        "classes": [] 
+    },{
+        "main": "7",
+        "shifted": "&",
+        "translated": "7",
+        "translatedShifted": ".",
+        "displayShifted": true,
+        "classes": []
+    },{
+        "main": "8",
+        "shifted": "*",
+        "translated": "3",
+        "translatedShifted": ";",
+        "displayShifted": true,
+        "classes": []
+    },{
+        "main": "9",
+        "shifted": "(",
+        "translated": "9",
+        "translatedShifted": "(",
+        "displayShifted": true,
+        "classes": []
+    },{
+        "main": "0",
+        "shifted": ")",
+        "translated": "0",
+        "translatedShifted": ")",
+        "displayShifted": true,
+        "classes": []
+    },{
+        "main": "-",
+        "shifted": "_",
+        "translated": "-",
+        "translatedShifted": "_",
+        "displayShifted": true,
+        "classes": []
+    },{
+        "main": "=",
+        "shifted": "+",
+        "translated": "=",
+        "translatedShifted": "+",
+        "displayShifted": true,
+        "classes": []
+    },{
+        "main": "",
+        "display": "Backspace",
+        "name": "Backspace",
+        "handler": "delete",
+        "classes": ["btn__backspace"]
+    }],
+
+    [{
+        "main": "\t",
+        "display": "Tab",
+        "name": "Tab",
+        "classes": ["btn__tab"]
+    },{
+        "main": "q",
+        "shifted": "Q",
+        "translated": "й",
+        "translatedShifted": "Й",
+        "classes": []
+    },{
+        "main": "w",
+        "shifted": "W",
+        "translated": "ц",
+        "translatedShifted": "Ц",
+        "classes": []
+    },{
+        "main": "e",
+        "shifted": "E",
+        "translated": "у",
+        "translatedShifted": "У",
+        "classes": []
+    },{
+        "main": "r",
+        "shifted": "R",
+        "translated": "к",
+        "translatedShifted": "К",
+        "classes": []
+    },{
+        "main": "t",
+        "shifted": "T",
+        "translated": " e",
+        "translatedShifted": "Е",
+        "classes": []
+    },{
+        "main": "y",
+        "shifted": "Y",
+        "translated": "н",
+        "translatedShifted": "Н",
+        "classes": []
+    },{
+        "main": "u",
+        "shifted": "U",
+        "translated": "г",
+        "translatedShifted": "Г",
+        "classes": []
+    },{
+        "main": "i",
+        "shifted": "I",
+        "translated": "ш",
+        "translatedShifted": "Ш",
+        "classes": []
+    },{
+        "main": "o",
+        "shifted": "O",
+        "translated": "щ",
+        "translatedShifted": "Щ",
+        "classes": []
+    },{
+        "main": "p",
+        "shifted": "P",
+        "translated": "з",
+        "translatedShifted": "З",
+        "classes": []
+    },{
+        "main": "[",
+        "shifted": "{",
+        "translated": "х",
+        "translatedShifted": "Х",
+        "classes": []
+    },{
+        "main": "]",
+        "shifted": "}",
+        "translated": "ъ",
+        "translatedShifted": "Ъ",
+        "classes": []
+    },{
+        "main": "Del",
+        "handler": "delete",
+        "classes": []
+    }],
+
+    [{
+        "main": "Caps Lock",
+        "classes": ["btn__caps-lock"]
+    },{
+        "main": "a",
+        "shifted": "A",
+        "translated": "ф",
+        "translatedShifted": "Ф",
+        "classes": []
+    },{
+        "main": "s",
+        "shifted": "S",
+        "translated": "ы",
+        "translatedShifted": "Ы",
+        "classes": []
+    },{
+        "main": "d",
+        "shifted": "D",
+        "translated": "в",
+        "translatedShifted": "В",
+        "classes": []
+    },{
+        "main": "f",
+        "shifted": "F",
+        "translated": "а",
+        "translatedShifted": "А",
+        "classes": []
+    },{
+        "main": "g",
+        "shifted": "G",
+        "translated": "п",
+        "translatedShifted": "П",
+        "classes": []
+    },{
+        "main": "h",
+        "shifted": "H",
+        "translated": "р",
+        "translatedShifted": "Р",
+        "classes": []
+    },{
+        "main": "j",
+        "shifted": "J",
+        "translated": "о",
+        "translatedShifted": "О",
+        "classes": []
+    },{
+        "main": "k",
+        "shifted": "K",
+        "translated": "л",
+        "translatedShifted": "Л",
+        "classes": []
+    },{
+        "main": "l",
+        "shifted": "L",
+        "translated": "д",
+        "translatedShifted": "Д",
+        "classes": []
+    },{
+        "main": ";",
+        "shifted": ":",
+        "translated": "ж",
+        "translatedShifted": "Ж",
+        "classes": []
+    },{
+        "main": "'",
+        "shifted": "\"",
+        "translated": "э",
+        "translatedShifted": "Э",
+        "classes": []
+    },{
+        "main": "\\",
+        "shifted": "|",
+        "translated": " ё",
+        "translatedShifted": "Ё",
+        "classes": []
+    },{
+        "main": "\n",
+        "display": "Enter",
+        "name": "Enter",
+        "classes": ["btn__enter"]
+    }],
+    
+    [{
+        "main": "Shift",
+        "handler": "shiftPressed",
+        "releaseHandler": "shiftReleased",
+        "classes": ["btn__shift"]
+    },{
+        "main": "`",
+        "shifted": "~",
+        "translated": "]",
+        "translatedShifted": "[",
+        "classes": []
+    },{
+        "main": "z",
+        "shifted": "Z",
+        "translated": " я",
+        "translatedShifted": "Я",
+        "classes": []
+    },{
+        "main": "x",
+        "shifted": "X",
+        "translated": "ч",
+        "translatedShifted": "Ч",
+        "classes": []
+    },{
+        "main": "c",
+        "shifted": "C",
+        "translated": "с",
+        "translatedShifted": "С",
+        "classes": []
+    },{
+        "main": "v",
+        "shifted": "V",
+        "translated": "м",
+        "translatedShifted": "М",
+        "classes": []
+    },{
+        "main": "b",
+        "shifted": "B",
+        "translated": "и",
+        "translatedShifted": "И",
+        "classes": []
+    },{
+        "main": "n",
+        "shifted": "N",
+        "translated": "т",
+        "translatedShifted": "Т",
+        "classes": []
+    },{
+        "main": "m",
+        "shifted": "M",
+        "translated": "ь",
+        "translatedShifted": "Ь",
+        "classes": []
+    },{
+        "main": ",",
+        "shifted": "<",
+        "translated": " б",
+        "translatedShifted": "Б",
+        "classes": []
+    },{
+        "main": ".",
+        "shifted": ">",
+        "translated": "ю",
+        "translatedShifted": "Ю",
+        "classes": []
+    },{
+        "main": "/",
+        "shifted": "?",
+        "translated": "/",
+        "translatedShifted": "?",
+        "classes": []
+    },{
+        "main": "Up",
+        "img": "icons/arrows/up.png",
+        "name": "ArrowUp",
+        "classes": ["btn__violet"]
+    },{
+        "main": "Shift",
+        "handler": "shiftPressed",
+        "releaseHandler": "shiftReleased",
+        "classes": []
+    }],
+
+    [{
+        "main": "fn",
+        "classes": []
+    },{
+        "main": "Control",
+        "classes": []
+    },{
+        "main": "Option",
+        "name": "Alt",
+        "classes": []
+    },{
+        "main": "Command",
+        "name": "Meta",
+        "classes": ["btn__command"]
+    },{
+        "main": " ",
+        "classes": ["btn__space"]
+    },{
+        "main": "Command",
+        "classes": ["btn__command"]
+    },{
+        "main": "Option",
+        "classes": []
+    },{
+        "main": "Left",
+        "img": "icons/arrows/left.png",
+        "name": "ArrowLeft",
+        "classes": ["btn__violet"]
+    },{
+        "main": "Down",
+        "img": "icons/arrows/down.png",
+        "name": "ArrowDown",
+        "classes": [ "btn__violet" ]
+    },{
+        "main": "Right",
+        "img": "icons/arrows/right.png",
+        "name": "ArrowRight",
+        "classes": [ "btn__violet"]
+    }]
+]

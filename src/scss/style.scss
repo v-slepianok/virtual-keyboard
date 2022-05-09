@@ -1,0 +1,11 @@
+
+body{
+    padding: 0px;
+    margin: 0px auto;
+    position: relative;
+    background-color: rgb(235, 235, 235)
+}
+
+@import './basic/keyboard';
+@import './basic/buttons';
+@import './basic/textarea';
