@@ -5,92 +5,98 @@ var __webpack_exports__ = {};
 (() => {
 
 ;// CONCATENATED MODULE: ./src/js/components/button.js
- 
- 
- class Button {
-    constructor(buttonConfig, clickHandler, releaseHandler){
-        this.buttonConfig = buttonConfig;
-        this.clickHandler = clickHandler;
-        this.releaseHandler = releaseHandler;
+class Button {
+  constructor(buttonConfig, clickHandler, releaseHandler) {
+    this.buttonConfig = buttonConfig;
+    this.clickHandler = clickHandler;
+    this.releaseHandler = releaseHandler;
 
-        this.isShifted = false;
-        this.isTranslated = false;
-        this.currentValue = this.buttonConfig.main;
+    this.isShifted = false;
+    this.isTranslated = false;
+    this.currentValue = this.buttonConfig.main;
 
-        this.intervalId = null;
+    this.intervalId = null;
 
-        this.element = document.createElement('div');
+    this.element = document.createElement('div');
 
-        this.element.innerHTML = this._getButtonHtml();
+    this.element.innerHTML = this.getButtonHtml();
 
-        this.element.classList.add('btn');
+    this.element.classList.add('btn');
 
-        if(this.buttonConfig?.classes?.length){
-            this.element.classList.add(...this.buttonConfig.classes);
-        }
-
-        this.element.addEventListener('mousedown', () => {
-            this.setPressed(true);
-        })
-
-        this.element.addEventListener('mouseup', () => {
-            this.setPressed(false);
-        })
-
+    if (this.buttonConfig?.classes?.length) {
+      this.element.classList.add(...this.buttonConfig.classes);
     }
 
-    _getButtonHtml() {
-        if (this.buttonConfig.img) {
-            // Case when we have image as button
-            return `<img src="${this.buttonConfig.img}"></img>`;
-        } else if (this.buttonConfig.display) {
-            return this.buttonConfig.display;
-        } else if (this.buttonConfig.displayShifted) {
-            // Case when we need to display additional options (row with numbers, for example)
-            return `<span>${this.buttonConfig.shifted}</span>${this.buttonConfig.main}`;
-        } else {
-            // Case when we do not show additional span with letter
-            return this.buttonConfig.main;
-        }
+    this.element.addEventListener('mousedown', () => {
+      this.setPressed(true);
+    });
+
+    this.element.addEventListener('mouseup', () => {
+      this.setPressed(false);
+    });
+  }
+
+  getButtonHtml() {
+    if (this.buttonConfig.img) {
+      // Case when we have image as button
+      return `<img src="${this.buttonConfig.img}"></img>`;
     }
 
-    getElement(){
-        return this.element;
+    if (this.buttonConfig.display) {
+      return this.buttonConfig.display;
     }
 
-    _updateSymbol(){
-        if(this.isTranslated && this.isShifted){
-            this.currentValue = this.buttonConfig.translatedShifted || this.buttonConfig.translted || this.buttonConfig.main;
-        }else if(this.isTranslated && !this.isShifted){
-            this.currentValue = this.buttonConfig.translatedShifted || this.buttonConfig.shifted || this.buttonConfig.main;
-        }else if(!this.isTranslated && this.isShifted){
-            this.currentValue = this.buttonConfig.shifted || this.buttonConfig.main;
-        }else if(!this.isTranslated && !this.isShifted){
-            this.currentValue = this.buttonConfig.main;
-        }
+    if (this.buttonConfig.displayShifted) {
+      // Case when we need to display additional options (row with numbers, for example)
+      return `<span>${this.buttonConfig.shifted}</span>${this.buttonConfig.main}`;
     }
 
-    setShifted(isShifted){
-        this.isShifted = isShifted;
-        this._updateSymbol();
-    }
+    // Case when we do not show additional span with letter
+    return this.buttonConfig.main;
+  }
 
-    setTranslated(isTranslated){
-        this.isTranslated = isTranslated;
-        this._updateSymbol();
-    }
+  getElement() {
+    return this.element;
+  }
 
-    setPressed(isPressed) {
-        if (isPressed) {
-            this.element.classList.add('active');
-            this.clickHandler(this.currentValue);
-        } else {
-            this.element.classList.remove('active');
-            if (this.releaseHandler) {
-                this.releaseHandler(this.currentValue);
-            }
-        }
+  updateSymbol() {
+    if (this.isTranslated && this.isShifted) {
+      this.currentValue = this.buttonConfig.translatedShifted
+        || this.buttonConfig.translted
+        || this.buttonConfig.main;
+    } else if (this.isTranslated && !this.isShifted) {
+      this.currentValue = this.buttonConfig.translatedShifted
+        || this.buttonConfig.shifted
+        || this.buttonConfig.main;
+    } else if (!this.isTranslated && this.isShifted) {
+      this.currentValue = this.buttonConfig.shifted
+        || this.buttonConfig.main;
+    } else if (!this.isTranslated && !this.isShifted) {
+      this.currentValue = this.buttonConfig.main;
     }
+  }
+
+  setShifted(isShifted) {
+    this.isShifted = isShifted;
+    this.updateSymbol();
+  }
+
+  setTranslated(isTranslated) {
+    this.isTranslated = isTranslated;
+    this.updateSymbol();
+  }
+
+  setPressed(isPressed) {
+    if (isPressed) {
+      this.element.classList.add('active');
+      this.clickHandler(this.currentValue);
+    } else {
+      this.element.classList.remove('active');
+      if (this.releaseHandler) {
+        this.releaseHandler(this.currentValue);
+      }
+    }
+  }
 }
 
 ;// CONCATENATED MODULE: ./src/js/buttons.json
@@ -105,125 +111,114 @@ const buttons = [];
 let currentInputValue = '';
 
 function findPressedButtons(button) {
-    return buttons.filter(btn => {
-        return btn.buttonConfig.main === button
-            || btn.buttonConfig.name === button
-            || btn.buttonConfig.shifted === button
-            || btn.buttonConfig.translated === button
-            || btn.buttonConfig.translatedShifted === button
-    });
+  return buttons.filter((btn) => btn.buttonConfig.main === button
+    || btn.buttonConfig.name === button
+    || btn.buttonConfig.shifted === button
+    || btn.buttonConfig.translated === button
+    || btn.buttonConfig.translatedShifted === button);
 }
 
 function simpleButtonClick(buttonValue) {
-    let textArea = document.querySelector('textarea');
+  const textArea = document.querySelector('textarea');
 
-    currentInputValue += buttonValue;
-    textArea.textContent = currentInputValue;
-}
-
-function deleteLastSymbol(){
-    let textArea = document.querySelector('textarea');
-    currentInputValue = currentInputValue.slice( 0, -1);
-    textArea.innerText = currentInputValue;
+  currentInputValue += buttonValue;
+  textArea.textContent = currentInputValue;
 }
 
 function deleteSymbol() {
-    let textArea = document.querySelector('textarea');
+  const textArea = document.querySelector('textarea');
 
-    let cursorPosition = textArea.getAttribute('selectionStart');
+  const cursorPosition = textArea.getAttribute('selectionStart');
 
-    currentInputValue = currentInputValue.slice(cursorPosition || 0, -1);
-    textArea.innerText = currentInputValue;
+  currentInputValue = currentInputValue.slice(cursorPosition || 0, -1);
+  textArea.innerText = currentInputValue;
 }
 
 function shiftPressed(isShifted) {
-    buttons.forEach(btn => btn.setShifted(isShifted));
-}
-
-function buildKeyboard() {
-    body = document.querySelector('body');
-    const keyBoard = document.createElement('div');
-    keyBoard.classList.add('container');
-
-    const handlersMap = {
-        'delete': deleteSymbol,
-        'backSpace' : deleteLastSymbol,
-        'shiftPressed': () => shiftPressed(true),
-        'shiftReleased': () => shiftPressed(false),
-    };
-
-    buttons_namespaceObject.forEach(buttonRow => {
-        const row = createRow();
-
-        buttonRow.forEach(buttonConfig => {
-            const handler = buttonConfig.handler ? handlersMap[buttonConfig.handler] : simpleButtonClick;
-            const releaseHandler = buttonConfig.releaseHandler ? handlersMap[buttonConfig.releaseHandler] : null;
-            const button = new Button(buttonConfig, handler, releaseHandler);
-            row.append(button.getElement());
-            buttons.push(button);
-        });
-
-        keyBoard.append(row);
-        // body.append(row);
-    });
-
-    body.append(keyBoard);
-
-    body.addEventListener('keydown', (event) => {
-        event.preventDefault();
-        const isButton = event.key;
-        if (!isButton) {
-            return;
-        }
-        
-        const filteredButtons = findPressedButtons(event.key);
-        if (filteredButtons.length) {
-            filteredButtons.forEach(btn => btn.setPressed(true));
-        }
-    });
-
-    body.addEventListener('keyup', (event) => {
-        event.preventDefault();
-        const isButton = event.key;
-        if (!isButton) {
-            return;
-        }
-
-        console.dir(event.key);
-        
-        const filteredButtons = findPressedButtons(event.key);
-        if (filteredButtons.length) {
-            filteredButtons.forEach(btn => btn.setPressed(false));
-        }
-    });
+  buttons.forEach((btn) => btn.setShifted(isShifted));
 }
 
 function createRow() {
-    const rowElement = document.createElement('div');
-    rowElement.classList.add('line');
-    return rowElement;
+  const rowElement = document.createElement('div');
+  rowElement.classList.add('line');
+  return rowElement;
 }
+
+function buildKeyboard() {
+  body = document.querySelector('body');
+  const keyBoard = document.createElement('div');
+  keyBoard.classList.add('container');
+
+  const handlersMap = {
+    delete: deleteSymbol,
+    shiftPressed: () => shiftPressed(true),
+    shiftReleased: () => shiftPressed(false),
+  };
+
+  buttons_namespaceObject.forEach((buttonRow) => {
+    const row = createRow();
+
+    buttonRow.forEach((buttonConfig) => {
+      const handler = buttonConfig.handler ? handlersMap[buttonConfig.handler] : simpleButtonClick;
+      const releaseHandler = buttonConfig.releaseHandler
+        ? handlersMap[buttonConfig.releaseHandler]
+        : null;
+      const button = new Button(buttonConfig, handler, releaseHandler);
+      row.append(button.getElement());
+      buttons.push(button);
+    });
+
+    keyBoard.append(row);
+    // body.append(row);
+  });
+
+  body.append(keyBoard);
+
+  body.addEventListener('keydown', (event) => {
+    event.preventDefault();
+    const isButton = event.key;
+    if (!isButton) {
+      return;
+    }
+
+    const filteredButtons = findPressedButtons(event.key);
+    if (filteredButtons.length) {
+      filteredButtons.forEach((btn) => btn.setPressed(true));
+    }
+  });
+
+  body.addEventListener('keyup', (event) => {
+    event.preventDefault();
+    const isButton = event.key;
+    if (!isButton) {
+      return;
+    }
+
+    const filteredButtons = findPressedButtons(event.key);
+    if (filteredButtons.length) {
+      filteredButtons.forEach((btn) => btn.setPressed(false));
+    }
+  });
+}
+
 ;// CONCATENATED MODULE: ./src/js/components/textarea.js
+function buildTextarea() {
+  const body = document.querySelector('body');
+  const element = document.createElement('textarea');
 
-
-
-function buildTextarea(){
-    const body = document.querySelector('body');
-    const element = document.createElement('textarea');
-
-    element.classList.add('textarea');
-    element.setAttribute('rows', 6);
-    element.setAttribute('placeholedr', 'Write something...');
-    body.append(element);
+  element.classList.add('textarea');
+  element.setAttribute('rows', 6);
+  element.setAttribute('placeholedr', 'Write something...');
+  body.append(element);
 }
+
 ;// CONCATENATED MODULE: ./src/js/index.js
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Content loaded, time to initialize keyboard');
-    buildTextarea();
-    buildKeyboard();
+  buildTextarea();
+  buildKeyboard();
 });
 
 })();
