@@ -1,0 +1,12 @@
+.container{
+    width: 1000px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding : 10px 20px;
+    background-color: rgb(242, 231, 255);
+    margin: 40px auto;
+    .line{
+        display: flex;
+        justify-content:space-between;
+    }
+}
