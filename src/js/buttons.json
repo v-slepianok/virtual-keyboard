@@ -86,13 +86,16 @@
         "classes": []
     },{
         "main": "",
-        "display": "backspace",
+        "display": "Backspace",
+        "name": "Backspace",
+        "handler": "delete",
         "classes": ["btn__backspace"]
     }],
 
     [{
         "main": "\t",
         "display": "Tab",
+        "name": "Tab",
         "classes": ["btn__tab"]
     },{
         "main": "q",
@@ -248,12 +251,16 @@
         "translatedShifted": "Ё",
         "classes": []
     },{
-        "main": "Enter",
+        "main": "\n",
+        "display": "Enter",
+        "name": "Enter",
         "classes": ["btn__enter"]
     }],
     
     [{
         "main": "Shift",
+        "handler": "shiftPressed",
+        "releaseHandler": "shiftReleased",
         "classes": ["btn__shift"]
     },{
         "main": "`",
@@ -274,8 +281,8 @@
         "translatedShifted": "Ч",
         "classes": []
     },{
-        "main": "с",
-        "shifted": "С",
+        "main": "c",
+        "shifted": "C",
         "translated": "с",
         "translatedShifted": "С",
         "classes": []
@@ -324,9 +331,12 @@
     },{
         "main": "Up",
         "img": "icons/arrows/up.png",
+        "name": "ArrowUp",
         "classes": ["btn__violet"]
     },{
         "main": "Shift",
+        "handler": "shiftPressed",
+        "releaseHandler": "shiftReleased",
         "classes": []
     }],
 
@@ -338,12 +348,14 @@
         "classes": []
     },{
         "main": "Option",
+        "name": "Alt",
         "classes": []
     },{
         "main": "Command",
+        "name": "Meta",
         "classes": ["btn__command"]
     },{
-        "main": "",
+        "main": " ",
         "classes": ["btn__space"]
     },{
         "main": "Command",
@@ -354,14 +366,17 @@
     },{
         "main": "Left",
         "img": "icons/arrows/left.png",
+        "name": "ArrowLeft",
         "classes": ["btn__violet"]
     },{
         "main": "Down",
         "img": "icons/arrows/down.png",
+        "name": "ArrowDown",
         "classes": [ "btn__violet" ]
     },{
         "main": "Right",
         "img": "icons/arrows/right.png",
+        "name": "ArrowRight",
         "classes": [ "btn__violet"]
     }]
 ]

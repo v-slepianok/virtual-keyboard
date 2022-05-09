@@ -1,12 +1,16 @@
  
  
  export class Button {
-    constructor(buttonConfig, clickHandler){
+    constructor(buttonConfig, clickHandler, releaseHandler){
         this.buttonConfig = buttonConfig;
+        this.clickHandler = clickHandler;
+        this.releaseHandler = releaseHandler;
 
         this.isShifted = false;
         this.isTranslated = false;
         this.currentValue = this.buttonConfig.main;
+
+        this.intervalId = null;
 
         this.element = document.createElement('div');
 
@@ -18,20 +22,13 @@
             this.element.classList.add(...this.buttonConfig.classes);
         }
 
-        if (clickHandler) {
-            this.element.addEventListener('click', () =>{
-                clickHandler(this.currentValue);
-                //this.element.classList.add('active');
-            });
-        }
+        this.element.addEventListener('mousedown', () => {
+            this.setPressed(true);
+        })
 
-        // this.element.addEventListener('keydown', () => {
-        //     this.element.classList.add('active'); 
-        // })
-
-        // this.element.addEventListener('keyup', () => {
-        //     this.element.classList.remive('active');
-        // })
+        this.element.addEventListener('mouseup', () => {
+            this.setPressed(false);
+        })
 
     }
 
@@ -58,13 +55,12 @@
         if(this.isTranslated && this.isShifted){
             this.currentValue = this.buttonConfig.translatedShifted || this.buttonConfig.translted || this.buttonConfig.main;
         }else if(this.isTranslated && !this.isShifted){
-            this.currentValue = this.buttonConfig.translted ||  this.buttonConfig.main;
+            this.currentValue = this.buttonConfig.translatedShifted || this.buttonConfig.shifted || this.buttonConfig.main;
         }else if(!this.isTranslated && this.isShifted){
-            this.currentValue = this.buttonConfig.translatedShifted || this.buttonConfig.main;
+            this.currentValue = this.buttonConfig.shifted || this.buttonConfig.main;
         }else if(!this.isTranslated && !this.isShifted){
             this.currentValue = this.buttonConfig.main;
         }
-         this.element.innerText = this.currentValue;
     }
 
     setShifted(isShifted){
@@ -80,8 +76,12 @@
     setPressed(isPressed) {
         if (isPressed) {
             this.element.classList.add('active');
+            this.clickHandler(this.currentValue);
         } else {
             this.element.classList.remove('active');
+            if (this.releaseHandler) {
+                this.releaseHandler(this.currentValue);
+            }
         }
     }
 }
