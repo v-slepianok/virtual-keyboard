@@ -1,4 +1,5 @@
 const path = require('path');
+const sass = require('sass');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -20,7 +21,7 @@ const config = {
             'default',
             {
               discardComments: {
-                removeAll: true
+                removeAll: true,
               },
             },
           ],
@@ -30,28 +31,28 @@ const config = {
   },
   module: {
     rules: [{
-        test: /\.(sass|scss)$/,
-        include: path.resolve(__dirname, 'src/scss'),
-        use: [{
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              url: false,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              implementation: require('sass'),
-              sourceMap: true,
-            },
-          },
-        ],
+      test: /\.(sass|scss)$/,
+      include: path.resolve(__dirname, 'src/scss'),
+      use: [{
+        loader: MiniCssExtractPlugin.loader,
+        options: {},
       },
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+          url: false,
+        },
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          implementation: sass,
+          sourceMap: true,
+        },
+      },
+      ],
+    },
     ],
   },
   plugins: [
